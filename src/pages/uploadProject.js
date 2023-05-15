@@ -14,9 +14,9 @@ import {
 import { storage, db } from "../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
-import { getFirestore, addDoc, collection } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import Header from "../components/Header/Header";
-import UploadProjectNavbar from "../components/UploadProjectNavbar/UploadProjectNavbar";
+import UploadProjectNavbar from "../components/adminPageComponents/UploadProjectNavbar";
 
 const uploadProject = () => {
   const [title, setTitle] = useState("");
@@ -26,12 +26,16 @@ const uploadProject = () => {
   const [tags, setTags] = useState([]);
   const [source, setSource] = useState("");
   const [deployedLink, setDeployedLink] = useState("");
-
-  const db = getFirestore();
+  // TimelineData is an array of objects
+  const [TimeLineYear, setTimeLineYear] = useState(0);
+  const [TimeLineText, setTimeLineText] = useState("");
 
   const data = {
     title: title,
     description: description,
+    tags: tags,
+    source: source,
+    deployedLink: deployedLink,
   };
 
   const handleSubmit = async (e) => {
@@ -70,9 +74,22 @@ const uploadProject = () => {
     setDeployedLink("");
   };
 
+  const handleTimeLineSubmit = async (e) => {
+    e.preventDefault();
+
+    await addDoc(collection(db, "TimeLine"), {
+      year: TimeLineYear,
+      text: TimeLineText,
+    });
+    console.log("uploaded");
+    setTimeLineYear(0);
+    setTimeLineText("");
+  };
+
   return (
     <>
-      <Container>
+      <UploadProjectNavbar />
+      <Container id="uploadProject">
         <Wrapper>
           <Heading>Add a new project</Heading>
           <Input>
@@ -145,6 +162,36 @@ const uploadProject = () => {
           </Input>
 
           <CreateBtn onClick={handleSubmit}>Submit Post</CreateBtn>
+        </Wrapper>
+      </Container>
+
+      <Container
+        style={{
+          marginTop: "100px",
+        }}
+        id="uploadAbout"
+      >
+        <Wrapper>
+          <Heading>Add a new about</Heading>
+          <Input>
+            <Label>Year: </Label>
+            <InputField
+              type="text"
+              placeholder="Year... "
+              value={TimeLineYear}
+              onChange={(e) => setTimeLineYear(e.target.value)}
+            />
+          </Input>
+          <Input>
+            <Label>Text: </Label>
+            <InputField
+              type="text"
+              placeholder="Text... "
+              value={TimeLineText}
+              onChange={(e) => setTimeLineText(e.target.value)}
+            />
+          </Input>
+          <CreateBtn onClick={handleTimeLineSubmit}>Add about</CreateBtn>
         </Wrapper>
       </Container>
     </>

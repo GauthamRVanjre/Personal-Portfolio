@@ -17,13 +17,26 @@ import {
   SectionText,
   SectionTitle,
 } from "../../styles/GlobalComponents";
-import { TimeLineData } from "../../constants/constants";
-
-const TOTAL_CAROUSEL_COUNT = TimeLineData.length;
+import { db } from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const Timeline = () => {
   const [activeItem, setActiveItem] = useState(0);
   const carouselRef = useRef();
+  const [TimeLineData, setTimeLineData] = useState([]);
+
+  const getTimelineData = async () => {
+    const snapshot = await getDocs(collection(db, "TimeLine"));
+    const TimelineData = snapshot.docs.map((doc) => doc.data());
+    setTimeLineData(TimelineData);
+  };
+  useEffect(() => {
+    getTimelineData();
+  }, []);
+
+  console.log("timeline", TimeLineData);
+
+  const TOTAL_CAROUSEL_COUNT = TimeLineData.length;
 
   // const scroll = (node, left) => {
   //   return node.scrollTo({ left, behavior: 'smooth' });
