@@ -10,9 +10,7 @@ const Acomplishments = () => {
 
   const getData = async () => {
     const snapshot = await getDocs(collection(db, "AccomplishmentsData"));
-    console.log("snapshot", snapshot);
     const data = snapshot.docs.map((doc) => doc.data());
-    console.log("data", data);
     setData(data);
   };
 

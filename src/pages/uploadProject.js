@@ -182,12 +182,12 @@ const uploadProject = () => {
 
       <Container
         style={{
-          marginTop: "100px",
+          marginTop: "200px",
         }}
         id="uploadAbout"
       >
         <Wrapper>
-          <Heading>Add a new about</Heading>
+          <Heading>Add a new Time Line Event</Heading>
           <Input>
             <Label>Year: </Label>
             <InputField
