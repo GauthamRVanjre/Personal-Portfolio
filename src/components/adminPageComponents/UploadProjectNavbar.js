@@ -49,6 +49,11 @@ const Header = () => {
             <NavLink>about</NavLink>
           </Link>
         </li>
+        <li>
+          <Link href="#uploadAccomplishments">
+            <NavLink>Accomplishments</NavLink>
+          </Link>
+        </li>
       </Div2>
       <Div3>
         <Btn onClick={addProject}>Logout</Btn>

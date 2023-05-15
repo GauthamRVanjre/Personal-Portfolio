@@ -26,9 +26,13 @@ const uploadProject = () => {
   const [tags, setTags] = useState([]);
   const [source, setSource] = useState("");
   const [deployedLink, setDeployedLink] = useState("");
-  // TimelineData is an array of objects
+  // TimelineData state variables
   const [TimeLineYear, setTimeLineYear] = useState(0);
   const [TimeLineText, setTimeLineText] = useState("");
+
+  // AccomplishmentsData state variables
+  const [AccomplishmentsNumber, setAccomplishmentsNumber] = useState(0);
+  const [AccomplishmentsText, setAccomplishmentsText] = useState("");
 
   const data = {
     title: title,
@@ -84,6 +88,17 @@ const uploadProject = () => {
     console.log("uploaded");
     setTimeLineYear(0);
     setTimeLineText("");
+  };
+
+  const handleAccomplishmentSubmit = async (e) => {
+    e.preventDefault();
+    await addDoc(collection(db, "AccomplishmentsData"), {
+      number: AccomplishmentsNumber,
+      text: AccomplishmentsText,
+    });
+    console.log("uploaded");
+    setAccomplishmentsNumber(0);
+    setAccomplishmentsText("");
   };
 
   return (
@@ -192,6 +207,34 @@ const uploadProject = () => {
             />
           </Input>
           <CreateBtn onClick={handleTimeLineSubmit}>Add about</CreateBtn>
+        </Wrapper>
+      </Container>
+
+      <Container id="uploadAccomplishments">
+        <Wrapper>
+          <Heading>Add a new accomplishment</Heading>
+          <Input>
+            <Label>Number: </Label>
+            <InputField
+              type="text"
+              placeholder="Number... "
+              value={AccomplishmentsNumber}
+              onChange={(e) => setAccomplishmentsNumber(e.target.value)}
+            />
+          </Input>
+
+          <Input>
+            <Label>Text: </Label>
+            <InputField
+              type="text"
+              placeholder="Text... "
+              value={AccomplishmentsText}
+              onChange={(e) => setAccomplishmentsText(e.target.value)}
+            />
+          </Input>
+          <CreateBtn onClick={handleAccomplishmentSubmit}>
+            Add accomplishment
+          </CreateBtn>
         </Wrapper>
       </Container>
     </>
