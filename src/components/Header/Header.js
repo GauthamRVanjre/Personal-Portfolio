@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { DiCssdeck } from "react-icons/di";
 
@@ -15,8 +15,15 @@ import {
 } from "./HeaderStyles";
 
 const Header = () => {
-  // const [isLoggedin, setIsLoggedin] = useState(false);
+  const [isLoggedin, setIsLoggedin] = useState(false);
   // console.log(isLoggedin);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      setIsLoggedin(true);
+    }
+  }, []);
 
   // const handleLogin = () => {
   //   signInWithPopup(auth, provider)
@@ -43,7 +50,11 @@ const Header = () => {
 
   const addProject = () => {
     window.location.href = "/uploadProject";
-  }
+  };
+
+  const logUserIn = () => {
+    window.location.href = "/Login";
+  };
 
   return (
     <Container>
@@ -99,9 +110,14 @@ const Header = () => {
           <Btn onClick={handleLogin}>Login</Btn>
         )} */}
 
-        <Btn onClick={addProject}>
+        {isLoggedin ? (
+          <Btn onClick={addProject}>Upload</Btn>
+        ) : (
+          <Btn onClick={logUserIn}>Login</Btn>
+        )}
+        {/* <Btn onClick={addProject}>
           Upload
-        </Btn>
+        </Btn> */}
       </Div3>
     </Container>
   );
