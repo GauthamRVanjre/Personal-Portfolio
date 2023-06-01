@@ -1,6 +1,12 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiFillInstagram,
+  AiFillLinkedin,
+  AiFillTwitterCircle,
+  AiFillTwitterSquare,
+} from "react-icons/ai";
 import { DiCssdeck } from "react-icons/di";
 
 import {
@@ -20,23 +26,18 @@ const Header = () => {
   // console.log(isLoggedin);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      setIsLoggedin(true);
+    if (localStorage.getItem("isLogged")) {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          localStorage.setItem("isLogged", true);
+          setIsLoggedin(true);
+        } else {
+          localStorage.removeItem("isLogged");
+          setIsLoggedin(false);
+        }
+      });
     }
   }, []);
-
-  // const handleLogin = () => {
-  //   signInWithPopup(auth, provider)
-  //     .then((result) => {
-  //       const user = result.user;
-  //       console.log(user.email);
-  //       setIsLoggedin(true);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
 
   const logUserOut = () => {
     auth
@@ -103,8 +104,8 @@ const Header = () => {
         <SocialIcons href="https://www.linkedin.com/in/gautham-r-vanjre-72b858228/">
           <AiFillLinkedin size="3rem" />
         </SocialIcons>
-        <SocialIcons href="https://www.instagram.com/vanjregautham/">
-          <AiFillInstagram size="3rem" />
+        <SocialIcons href="https://twitter.com/vanjregautham1">
+          <AiFillTwitterSquare size="3rem" />
         </SocialIcons>
         {isLoggedin ? (
           <Btn onClick={logUserOut}>Logout</Btn>
@@ -112,12 +113,12 @@ const Header = () => {
           <Btn onClick={logUserIn}>Login</Btn>
         )}
 
-        {isLoggedin &&
-        auth?.currentUser?.email === "vanjregautham@gmail.com" ? (
+        {isLoggedin && auth.currentUser.email === "vanjregautham@gmail.com" ? (
           <Btn onClick={addProject}>Upload</Btn>
         ) : (
           ""
         )}
+
         {/* <Btn onClick={addProject}>
           Upload
         </Btn> */}

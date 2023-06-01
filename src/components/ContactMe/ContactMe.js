@@ -6,39 +6,33 @@ import {
   TextAreaField,
 } from "./ContactMeStyles";
 import { SectionTitle } from "../../styles/GlobalComponents";
-import { auth } from "../../firebase";
 
 const ContactMe = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if (auth && auth.currentUser !== null) {
-      setName(auth.currentUser.displayName);
-      setEmail(auth.currentUser.email);
-    }
-  }, [auth]);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (name.length === 0 || email.length === 0 || message.length === 0) {
+      setError("Please fill all the fields");
+      return;
+    }
+
     const data = {
+      name: name,
+      email: email,
       message,
     };
 
-    // const response = await fetch('/api/contact', {
-    //     method: 'POST',
-    //     body: JSON.stringify(data),
-    //     headers: {
-    //     'Content-Type': 'application/json',
-    //     },
-    // });
+    console.log(data);
 
-    const result = await response.json();
-    console.log(result);
-
+    setName("");
+    setEmail("");
     setMessage("");
+    setError("");
   };
   return (
     <>
@@ -51,18 +45,42 @@ const ContactMe = () => {
         Contact Me - Make sure to login
       </SectionTitle>
       <FormContainer onSubmit={handleSubmit}>
-        <InputField type="text" placeholder="name" value={name} readOnly />
+        <InputField
+          type="text"
+          placeholder="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
 
-        <InputField type="email" placeholder="email" value={email} readOnly />
+        <InputField
+          type="email"
+          placeholder="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
         <TextAreaField
           type="submit"
           placeholder="Send Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          required
         />
 
-        <SubmitButton type="submit">Send Message</SubmitButton>
+        <SubmitButton onClick={handleSubmit} type="submit">
+          Send Message
+        </SubmitButton>
+        <p
+          style={{
+            color: "red",
+            textAlign: "center",
+            marginTop: "10px",
+          }}
+        >
+          {error}
+        </p>
       </FormContainer>
     </>
   );
