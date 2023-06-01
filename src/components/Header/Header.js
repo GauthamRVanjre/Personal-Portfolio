@@ -13,6 +13,7 @@ import {
   Span,
   Btn,
 } from "./HeaderStyles";
+import { auth } from "../../firebase";
 
 const Header = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
@@ -37,16 +38,17 @@ const Header = () => {
   //     });
   // };
 
-  // const handleLogout = () => {
-  //   auth
-  //     .signOut()
-  //     .then(() => {
-  //       setIsLoggedin(false);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  const logUserOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        setIsLoggedin(false);
+        console.log("logged out");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const addProject = () => {
     window.location.href = "/uploadProject";
@@ -104,16 +106,17 @@ const Header = () => {
         <SocialIcons href="https://www.instagram.com/vanjregautham/">
           <AiFillInstagram size="3rem" />
         </SocialIcons>
-        {/* {isLoggedin ? (
-          <Btn onClick={handleLogout}>Logout</Btn>
-        ) : (
-          <Btn onClick={handleLogin}>Login</Btn>
-        )} */}
-
         {isLoggedin ? (
-          <Btn onClick={addProject}>Upload</Btn>
+          <Btn onClick={logUserOut}>Logout</Btn>
         ) : (
           <Btn onClick={logUserIn}>Login</Btn>
+        )}
+
+        {isLoggedin &&
+        auth?.currentUser?.email === "vanjregautham@gmail.com" ? (
+          <Btn onClick={addProject}>Upload</Btn>
+        ) : (
+          ""
         )}
         {/* <Btn onClick={addProject}>
           Upload

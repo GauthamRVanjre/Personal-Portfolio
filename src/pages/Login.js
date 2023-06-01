@@ -9,7 +9,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user.email);
-        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("isLogged", true);
         window.location.href = "/";
       })
       .catch((error) => {
