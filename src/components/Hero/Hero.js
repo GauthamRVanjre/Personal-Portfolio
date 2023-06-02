@@ -29,7 +29,7 @@ const Hero = (props) => {
   }, []);
   return (
     <Section row nopadding>
-      <LeftSection>
+      <LeftSection data-aos="fade-up">
         <SectionTitle main center>
           Welcome To <br />
           My Personal Portfolio -{" "}
