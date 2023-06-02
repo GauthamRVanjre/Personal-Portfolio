@@ -18,12 +18,14 @@ const Technologies = () => (
   <Section id="tech">
     <SectionDivider />
     <br />
-    <SectionTitle>Technologies</SectionTitle>
-    <SectionText>
+    <SectionTitle data-aos="fade-right" data-aos-once="false">
+      Technologies
+    </SectionTitle>
+    <SectionText data-aos="fade-right" data-aos-once="false">
       I've worked with a range of technologies in the web development world.
       From Back-end To Design
     </SectionText>
-    <List>
+    <List data-aos="fade-left">
       <ListItem>
         <DiReact size="3rem" />
         <ListContainer>

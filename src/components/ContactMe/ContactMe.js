@@ -41,10 +41,11 @@ const ContactMe = () => {
         style={{
           marginLeft: "120px",
         }}
+        data-aos="fade-right"
       >
         Contact Me - Make sure to login
       </SectionTitle>
-      <FormContainer onSubmit={handleSubmit}>
+      <FormContainer onSubmit={handleSubmit} data-aos="fade-left">
         <InputField
           type="text"
           placeholder="name"

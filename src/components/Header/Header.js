@@ -71,11 +71,12 @@ const Header = () => {
               marginBottom: "20px",
             }}
           >
-            <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
+            <DiCssdeck size="3rem" />{" "}
+            <Span data-aos="fade-down">Portfolio</Span>
           </a>
         </Link>
       </Div1>
-      <Div2>
+      <Div2 data-aos="fade-down">
         <li>
           <Link href="#projects">
             <NavLink>Projects</NavLink>
@@ -97,7 +98,7 @@ const Header = () => {
           </Link>
         </li>
       </Div2>
-      <Div3>
+      <Div3 data-aos="fade-down">
         <SocialIcons href="https://github.com/GauthamRVanjre/">
           <AiFillGithub size="3rem" />
         </SocialIcons>
