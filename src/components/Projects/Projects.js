@@ -38,10 +38,10 @@ const Projects = () => {
   return (
     <Section nopadding id="projects">
       <SectionDivider />
-      <SectionTitle main data-aos="fade-right">
+      <SectionTitle main data-aos="fade-right" data-aos-once="false">
         Projects
       </SectionTitle>
-      <GridContainer data-aos="fade-left">
+      <GridContainer data-aos="fade-left" data-aos-once="false">
         {projects.map(
           ({ id, image, title, description, tags, source, visit }) => (
             <BlogCard key={id}>
