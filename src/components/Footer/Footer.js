@@ -17,7 +17,7 @@ import {
 const Footer = () => {
   return (
     <FooterWrapper>
-      <LinkList data-aos="fade-right">
+      <LinkList data-aos="fade-right" data-aos-once="false">
         <LinkColumn>
           <LinkTitle>LinkedIn profile</LinkTitle>
           <LinkItem href="https://www.linkedin.com/in/gautham-r-vanjre-72b858228/">
@@ -33,10 +33,10 @@ const Footer = () => {
         </LinkColumn>
       </LinkList>
       <SocialIconsContainer>
-        <CompanyContainer data-aos="fade-right">
+        <CompanyContainer data-aos="fade-right" data-aos-once="false">
           <Slogan>Learning is a never ending process</Slogan>
         </CompanyContainer>
-        <SocialContainer data-aos="fade-left">
+        <SocialContainer data-aos="fade-left" data-aos-once="false">
           <SocialIcons href="https://github.com/GauthamRVanjre/">
             <AiFillGithub size="3rem" />
           </SocialIcons>

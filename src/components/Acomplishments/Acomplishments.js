@@ -22,10 +22,10 @@ const Acomplishments = () => {
 
   return (
     <Section>
-      <SectionTitle data-aos="fade-right">
+      <SectionTitle data-aos="fade-right" data-aos-once="false">
         Personal Accomplishments
       </SectionTitle>
-      <Boxes data-aos="fade-left">
+      <Boxes data-aos="fade-left" data-aos-once="false">
         {data.map((card, index) => (
           <Box key={index}>
             <BoxNum>{card.number}+</BoxNum>

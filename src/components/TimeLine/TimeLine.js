@@ -79,14 +79,20 @@ const Timeline = () => {
   return (
     <Section id="about">
       <SectionDivider />
-      <SectionTitle>About Me</SectionTitle>
-      <SectionText data-aos="fade-right">
+      <SectionTitle data-aos="fade-right" data-aos-once="false">
+        About Me
+      </SectionTitle>
+      <SectionText data-aos="fade-right" data-aos-once="false">
         A final year student in Information Science course, seeking a position
         as a React developer where I can utilize my skills and continue to learn
         and grow as a developer. I am excited to join a team that values
         collaboration and encourages personal and professional growth.
       </SectionText>
-      <CarouselContainer ref={carouselRef} data-aos="fade-left">
+      <CarouselContainer
+        ref={carouselRef}
+        data-aos="fade-left"
+        data-aos-once="false"
+      >
         <>
           {TimeLineData.map((item, index) => (
             <CarouselMobileScrollNode

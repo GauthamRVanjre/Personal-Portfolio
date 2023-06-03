@@ -25,7 +25,7 @@ const Technologies = () => (
       I've worked with a range of technologies in the web development world.
       From Back-end To Design
     </SectionText>
-    <List data-aos="fade-left">
+    <List data-aos="fade-left" data-aos-once="false">
       <ListItem>
         <DiReact size="3rem" />
         <ListContainer>
