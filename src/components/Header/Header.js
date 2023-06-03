@@ -1,6 +1,12 @@
 import Link from "next/link";
-import React, { useState } from "react";
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
+import React, { useEffect, useState } from "react";
+import {
+  AiFillGithub,
+  AiFillInstagram,
+  AiFillLinkedin,
+  AiFillTwitterCircle,
+  AiFillTwitterSquare,
+} from "react-icons/ai";
 import { DiCssdeck } from "react-icons/di";
 
 import {
@@ -13,37 +19,45 @@ import {
   Span,
   Btn,
 } from "./HeaderStyles";
+import { auth } from "../../firebase";
 
 const Header = () => {
-  // const [isLoggedin, setIsLoggedin] = useState(false);
+  const [isLoggedin, setIsLoggedin] = useState(false);
   // console.log(isLoggedin);
 
-  // const handleLogin = () => {
-  //   signInWithPopup(auth, provider)
-  //     .then((result) => {
-  //       const user = result.user;
-  //       console.log(user.email);
-  //       setIsLoggedin(true);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  useEffect(() => {
+    if (localStorage.getItem("isLogged")) {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          localStorage.setItem("isLogged", true);
+          setIsLoggedin(true);
+        } else {
+          localStorage.removeItem("isLogged");
+          setIsLoggedin(false);
+        }
+      });
+    }
+  }, []);
 
-  // const handleLogout = () => {
-  //   auth
-  //     .signOut()
-  //     .then(() => {
-  //       setIsLoggedin(false);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  const logUserOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        setIsLoggedin(false);
+        console.log("logged out");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const addProject = () => {
     window.location.href = "/uploadProject";
-  }
+  };
+
+  const logUserIn = () => {
+    window.location.href = "/Login";
+  };
 
   return (
     <Container>
@@ -57,11 +71,12 @@ const Header = () => {
               marginBottom: "20px",
             }}
           >
-            <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
+            <DiCssdeck size="3rem" />{" "}
+            <Span data-aos="fade-down">Portfolio</Span>
           </a>
         </Link>
       </Div1>
-      <Div2>
+      <Div2 data-aos="fade-down">
         <li>
           <Link href="#projects">
             <NavLink>Projects</NavLink>
@@ -83,25 +98,31 @@ const Header = () => {
           </Link>
         </li>
       </Div2>
-      <Div3>
+      <Div3 data-aos="fade-down">
         <SocialIcons href="https://github.com/GauthamRVanjre/">
           <AiFillGithub size="3rem" />
         </SocialIcons>
         <SocialIcons href="https://www.linkedin.com/in/gautham-r-vanjre-72b858228/">
           <AiFillLinkedin size="3rem" />
         </SocialIcons>
-        <SocialIcons href="https://www.instagram.com/vanjregautham/">
-          <AiFillInstagram size="3rem" />
+        <SocialIcons href="https://twitter.com/vanjregautham1">
+          <AiFillTwitterSquare size="3rem" />
         </SocialIcons>
-        {/* {isLoggedin ? (
-          <Btn onClick={handleLogout}>Logout</Btn>
+        {isLoggedin ? (
+          <Btn onClick={logUserOut}>Logout</Btn>
         ) : (
-          <Btn onClick={handleLogin}>Login</Btn>
-        )} */}
+          <Btn onClick={logUserIn}>Login</Btn>
+        )}
 
-        <Btn onClick={addProject}>
+        {isLoggedin && auth.currentUser.email === "vanjregautham@gmail.com" ? (
+          <Btn onClick={addProject}>Upload</Btn>
+        ) : (
+          ""
+        )}
+
+        {/* <Btn onClick={addProject}>
           Upload
-        </Btn>
+        </Btn> */}
       </Div3>
     </Container>
   );
