@@ -6,7 +6,7 @@ import {
   SectionTitle,
 } from "../../styles/GlobalComponents";
 import Button from "../../styles/GlobalComponents/Button";
-import { SocialIcons } from "../Header/HeaderStyles";
+import { SocialIcons, Flex } from "../Header/HeaderStyles";
 import { LeftSection } from "./HeroStyles";
 import { auth } from "../../firebase";
 
@@ -39,15 +39,21 @@ const Hero = (props) => {
           As an aspiring front-end developer, I am eager to dive into the world
           of web development and bring my designs to life. I have a strong
           foundation in HTML, CSS, and JavaScript, and I am constantly learning
-          new technologies like React.js, Next.js and tools to stay current in
-          this ever-evolving field. I have a keen eye for design and a passion
-          for creating user-friendly and accessible experiences for all users.
+          new technologies like React.js, Next.js, TypeScript and tools to stay
+          current in this ever-evolving field. I have a keen eye for design and
+          a passion for creating user-friendly and accessible experiences for
+          all users.
         </SectionText>
-        <Button>
-          <SocialIcons href="https://www.linkedin.com/in/gautham-r-vanjre-72b858228/">
-            Ping me on LinkedIn
-          </SocialIcons>
-        </Button>
+        <Flex>
+          <Button>
+            <SocialIcons href="https://www.linkedin.com/in/gautham-r-vanjre-72b858228/">
+              Ping me on LinkedIn
+            </SocialIcons>
+          </Button>
+          <Button>
+            <SocialIcons>Download Resume</SocialIcons>
+          </Button>
+        </Flex>
       </LeftSection>
     </Section>
   );
