@@ -6,6 +6,7 @@ import {
   Label,
   Input,
   InputField,
+  TextArea,
   CreateBtn,
   TagWrapper,
   Tag,
@@ -150,7 +151,7 @@ const uploadProject = () => {
           </Input>
           <Input>
             <Label>Description: </Label>
-            <InputField
+            <TextArea
               placeholder="Description... "
               value={description}
               onChange={(e) => {

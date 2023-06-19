@@ -50,9 +50,9 @@ const Hero = (props) => {
               Ping me on LinkedIn
             </SocialIcons>
           </Button>
-          <Button>
+          {/* <Button>
             <SocialIcons>Download Resume</SocialIcons>
-          </Button>
+          </Button> */}
         </Flex>
       </LeftSection>
     </Section>

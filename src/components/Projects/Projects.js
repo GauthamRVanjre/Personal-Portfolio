@@ -43,16 +43,24 @@ const Projects = () => {
       </SectionTitle>
       <GridContainer data-aos="fade-left" data-aos-once="false">
         {projects.map(
-          ({ id, image, title, description, tags, source, visit }) => (
+          ({
+            id,
+            imageUrl,
+            title,
+            description,
+            tags,
+            source,
+            deployedLink,
+          }) => (
             <BlogCard key={id}>
-              <Img src={image} />
+              <Img src={imageUrl} alt={imageUrl} />
               <TitleContent>
                 <HeaderThree title>{title}</HeaderThree>
                 <Hr />
               </TitleContent>
               <CardInfo>{description}</CardInfo>
               <div>
-                <TitleContent>Stack</TitleContent>
+                <TitleContent>Tech Stack:- </TitleContent>
                 <TagList>
                   {tags.map((tag, i) => (
                     <Tag key={i}>{tag}</Tag>
@@ -60,8 +68,8 @@ const Projects = () => {
                 </TagList>
               </div>
               <UtilityList>
-                <ExternalLinks href={visit}>Code</ExternalLinks>
-                <ExternalLinks href={source}>Demo</ExternalLinks>
+                <ExternalLinks href={deployedLink}>Demo</ExternalLinks>
+                <ExternalLinks href={source}>Code</ExternalLinks>
               </UtilityList>
             </BlogCard>
           )

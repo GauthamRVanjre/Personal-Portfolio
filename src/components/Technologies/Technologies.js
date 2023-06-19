@@ -51,10 +51,10 @@ const Technologies = () => (
       <ListItem>
         <DiAndroid size="3rem" />
         <ListContainer>
-          <ListTitle>Android Development</ListTitle>
+          <ListTitle>Mobile Apps</ListTitle>
           <ListParagraph>
             Experience with <br />
-            Kotlin based Development
+            React-Native based Development
           </ListParagraph>
         </ListContainer>
       </ListItem>

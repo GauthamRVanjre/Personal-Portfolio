@@ -79,6 +79,7 @@ const Timeline = () => {
   return (
     <Section id="about">
       <SectionDivider />
+      <br />
       <SectionTitle data-aos="fade-right" data-aos-once="false">
         About Me
       </SectionTitle>
