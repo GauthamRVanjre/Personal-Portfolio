@@ -18,6 +18,10 @@ const Header = () => {
     window.location.href = "/uploadProject";
   };
 
+  const homePage = () => {
+    window.location.href = "/";
+  };
+
   return (
     <Container
       style={{
@@ -56,6 +60,7 @@ const Header = () => {
         </li>
       </Div2>
       <Div3>
+        <Btn onClick={homePage}>Home</Btn>
         <Btn onClick={addProject}>Logout</Btn>
       </Div3>
     </Container>

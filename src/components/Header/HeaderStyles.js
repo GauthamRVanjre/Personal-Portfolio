@@ -18,6 +18,12 @@ export const Container = styled.div`
   }
 `;
 
+export const Flex = styled.div`
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const Span = styled.span`
   font-size: 2rem;
   font-weight: 700;
@@ -134,15 +140,13 @@ export const Btn = styled.button`
   font-size: 1.7rem;
   font-weight: 500;
   letter-spacing: 1px;
-  background: linear-gradient(270deg, #00DBD8 0%, #B133FF 100%);
-    border-radius: 50px;
-    padding: 12px;
-    &:hover {
-      background-color: #212d45;
-      transform: scale(1.2);
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
+  background: linear-gradient(270deg, #00dbd8 0%, #b133ff 100%);
+  border-radius: 50px;
+  padding: 12px;
+  &:hover {
+    background-color: #212d45;
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
 `;
-
-

@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start"
+    "start": "next --openssl-legacy-provider start"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "firebase": "^9.21.0",
     "firestore": "^1.1.6",
     "google-auth-library": "^8.7.0",

@@ -38,19 +38,29 @@ const Projects = () => {
   return (
     <Section nopadding id="projects">
       <SectionDivider />
-      <SectionTitle main>Projects</SectionTitle>
-      <GridContainer>
+      <SectionTitle main data-aos="fade-right" data-aos-once="false">
+        Projects
+      </SectionTitle>
+      <GridContainer data-aos="fade-left" data-aos-once="false">
         {projects.map(
-          ({ id, image, title, description, tags, source, visit }) => (
+          ({
+            id,
+            imageUrl,
+            title,
+            description,
+            tags,
+            source,
+            deployedLink,
+          }) => (
             <BlogCard key={id}>
-              <Img src={image} />
+              <Img src={imageUrl} alt={imageUrl} />
               <TitleContent>
                 <HeaderThree title>{title}</HeaderThree>
                 <Hr />
               </TitleContent>
               <CardInfo>{description}</CardInfo>
               <div>
-                <TitleContent>Stack</TitleContent>
+                <TitleContent>Tech Stack:- </TitleContent>
                 <TagList>
                   {tags.map((tag, i) => (
                     <Tag key={i}>{tag}</Tag>
@@ -58,8 +68,12 @@ const Projects = () => {
                 </TagList>
               </div>
               <UtilityList>
-                <ExternalLinks href={visit}>Code</ExternalLinks>
-                <ExternalLinks href={source}>Demo</ExternalLinks>
+                <ExternalLinks href={deployedLink} target="_blank">
+                  Demo
+                </ExternalLinks>
+                <ExternalLinks href={source} target="_blank">
+                  Code
+                </ExternalLinks>
               </UtilityList>
             </BlogCard>
           )

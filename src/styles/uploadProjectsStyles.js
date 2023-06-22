@@ -62,6 +62,15 @@ export const InputField = styled.input`
   margin-top: 5px;
 `;
 
+export const TextArea = styled.textarea`
+  font-size: 18px;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+  margin-top: 5px;
+  height: 100px;
+`;
+
 export const CreateBtn = styled.button`
   margin-top: 20px;
   height: 40px;
