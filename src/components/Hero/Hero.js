@@ -32,7 +32,7 @@ const Hero = (props) => {
       <LeftSection data-aos="fade-up">
         <SectionTitle main center>
           Hi - {isLoggedIn ? auth.currentUser.displayName : "Guest"}, Welcome to
-          my portfolio. I build things that you name
+          my portfolio. I build applications for real world 
         </SectionTitle>
         <SectionText>
           As an aspiring front-end developer, I am eager to dive into the world
