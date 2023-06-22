@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next --openssl-legacy-provider build && next export",
     "start": "next --openssl-legacy-provider start"
   },
   "dependencies": {
@@ -19,5 +19,9 @@
     "styled-components": "^5.3.0",
     "styled-normalize": "^8.0.7",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "next-transpile-modules": "^10.0.0"
   }
 }
