@@ -8,14 +8,14 @@
 # testing
 /coverage
 
-# next.js
+# js
 /.next/
 /out/
 
 # production
 /build
-# /src/firebase.js
-# /src/firebase-config.js
+/src/firebase.js
+/src/firebase-config.js
 
 # misc
 .DS_Store

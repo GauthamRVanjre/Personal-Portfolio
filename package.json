@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next --openssl-legacy-provider build && next export",
-    "start": "next --openssl-legacy-provider start"
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider npm run develop",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider; next build",
+    "start": "next start"
   },
   "dependencies": {
     "aos": "^2.3.4",
