@@ -54,7 +54,7 @@ const Hero = (props) => {
           </Button>
           <Button>
             <SocialIcons
-              href="https://drive.google.com/file/d/1_8x6VXgBUa7wbB6-PPzQs4AEgM6enqm5/view?usp=sharing"
+              href="https://drive.google.com/file/d/1kjEuwmaryLYsE4O8uuPGFRH0nFGm2rFh/view?usp=sharing"
               target="_blank"
             >
               Download Resume
