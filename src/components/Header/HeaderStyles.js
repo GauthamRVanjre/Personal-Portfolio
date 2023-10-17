@@ -25,6 +25,7 @@ export const Flex = styled.div`
 
   @media ${(props) => props.theme.breakpoints.sm} {
     width: 100%;
+    flex-direction: column;
   }
 `;
 
