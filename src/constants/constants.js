@@ -10,3 +10,20 @@ export const TimeLineData = [
     text: "Transitioned to the role of Junior Full Stack Developer at AlphaBi",
   },
 ];
+
+export const skills = [
+  "HTML",
+  "CSS",
+  "Tailwind CSS",
+  "Shadcn",
+  "Bootstrap",
+  "JavaScript",
+  "React",
+  "Redux",
+  "Node.js",
+  "Next.js",
+  "Prisma",
+  "MongoDB",
+  "Express",
+  "Git",
+];

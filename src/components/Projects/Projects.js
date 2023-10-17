@@ -36,9 +36,9 @@ const Projects = () => {
 
   console.log("projects", projects);
   return (
-    <Section nopadding id="projects">
+    <Section id="projects">
       <SectionDivider />
-      <SectionTitle main data-aos="fade-right" data-aos-once="false">
+      <SectionTitle data-aos="fade-right" data-aos-once="false">
         Projects
       </SectionTitle>
       <GridContainer data-aos="fade-left" data-aos-once="false">

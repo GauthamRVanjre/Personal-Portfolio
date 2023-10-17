@@ -16,6 +16,7 @@ const Home = () => {
       {/* <BgAnimation /> */}
       {/* </Section> */}
       <Timeline />
+      <SkillsSet />
       <Projects />
       <Technologies />
       <Acomplishments />
