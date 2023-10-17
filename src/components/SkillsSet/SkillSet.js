@@ -6,6 +6,7 @@ import {
 } from "../../styles/GlobalComponents";
 import { skills } from "../../constants/constants";
 import { SkilledSetBoxes, SkillBox } from "./SkillSetStyles";
+import Button from "../../styles/GlobalComponents/Button";
 
 const SkillSet = () => {
   return (
@@ -15,11 +16,11 @@ const SkillSet = () => {
         <SectionTitle data-aos="fade-right" data-aos-once="false">
           Skills set
         </SectionTitle>
-        <SkilledSetBoxes>
+        <Button>
           {skills.map((skill, index) => (
             <SkillBox key={index}>{skill}</SkillBox>
           ))}
-        </SkilledSetBoxes>
+        </Button>
       </Section>
     </>
   );
