@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  height: 100vh;
   display: ${(props) => (props.grid ? "grid" : "flex")};
   flex-direction: ${(props) => (props.row ? "row" : "column")};
   padding: ${(props) => (props.nopadding ? "0" : "32px 48px 0")};
