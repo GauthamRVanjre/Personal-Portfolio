@@ -19,7 +19,7 @@ export const Container = styled.div`
 `;
 
 export const Flex = styled.div`
-  width: 60%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 `;
