@@ -22,8 +22,8 @@ const Technologies = () => (
       Technologies
     </SectionTitle>
     <SectionText data-aos="fade-right" data-aos-once="false">
-      I've worked with a range of technologies in the web development world.
-      From Back-end To Design
+      I possess a diverse skill set encompassing various facets of web
+      development, from back-end architecture to creative design.
     </SectionText>
     <List data-aos="fade-left" data-aos-once="false">
       <ListItem>

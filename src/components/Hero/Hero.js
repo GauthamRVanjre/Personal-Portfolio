@@ -31,17 +31,24 @@ const Hero = (props) => {
     <Section row nopadding>
       <LeftSection data-aos="fade-up">
         <SectionTitle main center>
-          Hi - {isLoggedIn ? auth.currentUser.displayName : "Guest"}, Welcome to
-          my portfolio. I craft digital experience with Code.
+          Hello - {isLoggedIn ? auth.currentUser.displayName : "Guest"}, and
+          welcome to my portfolio. I specialize in creating exceptional digital
+          experiences through the power of code.
         </SectionTitle>
         <SectionText>
-          As an aspiring front-end developer, I am eager to dive into the world
-          of web development and bring my designs to life. I have a strong
-          foundation in HTML, CSS, and JavaScript, and I am constantly learning
-          new technologies like React.js, Next.js, TypeScript, React Native and
-          tools to stay current in this ever-evolving field. I have a keen eye
-          for design and a passion for creating user-friendly and accessible
-          experiences for all users.
+          As a dedicated web developer, I am poised to embark on an exciting
+          journey within the realm of web development, where I transform
+          innovative designs into functional, user-centric websites and
+          applications. With a rock-solid foundation in HTML, CSS, and
+          JavaScript, I am unceasingly expanding my skill set by immersing
+          myself in cutting-edge technologies such as React.js, Next.js,
+          TypeScript, React Native, MongoDB, MERN stack and an array of
+          invaluable development tools. My unwavering commitment to staying at
+          the forefront of this ever-evolving field is paralleled only by my
+          discerning eye for design and my unwavering passion for crafting
+          seamless, universally accessible digital experiences. Welcome to my
+          world, where every pixel matters, and the user's journey takes center
+          stage
         </SectionText>
         <Flex>
           <Button>

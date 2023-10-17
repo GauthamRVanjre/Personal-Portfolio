@@ -73,57 +73,47 @@ const Timeline = () => {
         About Me
       </SectionTitle>
       <SectionText data-aos="fade-right" data-aos-once="false">
-        A final year student in Information Science course, seeking a position
-        as a React developer where I can utilize my skills and continue to learn
-        and grow as a developer. I am excited to join a team that values
-        collaboration and encourages personal and professional growth.
+        As a recent graduate with a degree in Information Science and
+        professional experience as a web developer in the industry, I am eager
+        to secure a position as a React developer. I am enthusiastic about
+        applying my existing skills and knowledge while furthering my
+        development expertise. I am keen to join a dynamic team that places a
+        high value on collaborative work and fosters both personal and
+        professional growth.
       </SectionText>
-      <CarouselContainer
-        ref={carouselRef}
-        data-aos="fade-left"
-        data-aos-once="false"
-      >
-        <>
+
+      <div class="timeline-carousel">
+        <div
+          class="carousel-container"
+          ref={carouselRef}
+          data-aos="fade-left"
+          data-aos-once="false"
+        >
           {TimeLineData.map((item, index) => (
-            <CarouselMobileScrollNode
-              key={index}
-              final={index === TOTAL_CAROUSEL_COUNT - 1}
-            >
-              <CarouselItem
-                index={index}
+            <div class="carousel-mobile-scroll-node" key={index}>
+              <div
+                class={`carousel-item ${index === activeItem ? "active" : ""}`}
                 id={`carousel__item-${index}`}
-                active={activeItem}
                 onClick={(e) => handleClick(e, index)}
               >
-                <CarouselItemTitle>
+                <div class="carousel-item-title">
                   {item.year}
-                  <CarouselItemImg
+                  <svg
+                    class="carousel-item-img"
                     width="208"
                     height="6"
                     viewBox="0 0 208 6"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                  ></CarouselItemImg>
-                </CarouselItemTitle>
-                <CarouselItemText>{item.text}</CarouselItemText>
-              </CarouselItem>
-            </CarouselMobileScrollNode>
+                  ></svg>
+                </div>
+                <div class="carousel-item-text">{item.text}</div>
+              </div>
+            </div>
           ))}
-        </>
-      </CarouselContainer>
-      {/* <CarouselButtons>
-        {TimeLineData.map((item, index) => (
-          <CarouselButton
-            key={index}
-            index={index}
-            active={activeItem}
-            onClick={(e) => handleClick(e, index)}
-            type="button"
-          >
-            <CarouselButtonDot active={activeItem} />
-          </CarouselButton>
-        ))}
-      </CarouselButtons> */}
+        </div>
+      </div>
+
       <SectionDivider />
     </Section>
   );
