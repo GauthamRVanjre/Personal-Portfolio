@@ -5,6 +5,7 @@ import {
   SectionTitle,
 } from "../../styles/GlobalComponents";
 import { skills } from "../../constants/constants";
+import { SkilledSetBoxes, SkillBox } from "./SkillSetStyles";
 
 const SkillSet = () => {
   return (
