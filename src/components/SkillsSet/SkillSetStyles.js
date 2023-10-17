@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const SkilledSetBoxes = styled.div`
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  width: 100%;
 `;
 
 export const SkillBox = styled.div`

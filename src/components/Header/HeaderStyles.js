@@ -19,9 +19,13 @@ export const Container = styled.div`
 `;
 
 export const Flex = styled.div`
-  width: 100%;
+  width: 60%;
   display: flex;
   justify-content: space-between;
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    width: 100%;
+  }
 `;
 
 export const Span = styled.span`
