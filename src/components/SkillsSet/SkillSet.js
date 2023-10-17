@@ -16,11 +16,11 @@ const SkillSet = () => {
         <SectionTitle data-aos="fade-right" data-aos-once="false">
           Skills set
         </SectionTitle>
-        <Button>
+        <SkilledSetBoxes>
           {skills.map((skill, index) => (
-            <SkillBox key={index}>{skill}</SkillBox>
+            <Button key={index}>{skill}</Button>
           ))}
-        </Button>
+        </SkilledSetBoxes>
       </Section>
     </>
   );
