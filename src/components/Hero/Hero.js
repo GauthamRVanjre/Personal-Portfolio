@@ -32,23 +32,15 @@ const Hero = (props) => {
       <LeftSection data-aos="fade-up">
         <SectionTitle main center>
           Hello - {isLoggedIn ? auth.currentUser.displayName : "Guest"}, and
-          welcome to my portfolio. I specialize in creating exceptional digital
-          experiences through the power of code.
+          welcome to my portfolio; I craft exceptional digital experiences with
+          code.
         </SectionTitle>
         <SectionText>
-          As a dedicated web developer, I am poised to embark on an exciting
-          journey within the realm of web development, where I transform
-          innovative designs into functional, user-centric websites and
-          applications. With a rock-solid foundation in HTML, CSS, and
-          JavaScript, I am unceasingly expanding my skill set by immersing
-          myself in cutting-edge technologies such as React.js, Next.js,
-          TypeScript, React Native, MongoDB, MERN stack and an array of
-          invaluable development tools. My unwavering commitment to staying at
-          the forefront of this ever-evolving field is paralleled only by my
-          discerning eye for design and my unwavering passion for crafting
-          seamless, universally accessible digital experiences. Welcome to my
-          world, where every pixel matters, and the user's journey takes center
-          stage
+          As a dedicated web developer, I create user-centric websites and apps.
+          Proficient in HTML, CSS, JavaScript, React.js, Next.js, and more, I
+          stay at the forefront of this ever-evolving field. With a discerning
+          eye for design, I craft seamless digital experiences. Welcome to my
+          world, where every pixel matters.
         </SectionText>
         <Flex>
           <Button>

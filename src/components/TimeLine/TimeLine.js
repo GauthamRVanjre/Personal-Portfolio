@@ -75,44 +75,46 @@ const Timeline = () => {
       <SectionText data-aos="fade-right" data-aos-once="false">
         As a recent graduate with a degree in Information Science and
         professional experience as a web developer in the industry, I am eager
-        to secure a position as a React developer. I am enthusiastic about
+        to secure a position as a Web developer. I am enthusiastic about
         applying my existing skills and knowledge while furthering my
         development expertise. I am keen to join a dynamic team that places a
         high value on collaborative work and fosters both personal and
         professional growth.
       </SectionText>
 
-      <div class="timeline-carousel">
-        <div
-          class="carousel-container"
-          ref={carouselRef}
-          data-aos="fade-left"
-          data-aos-once="false"
-        >
+      <CarouselContainer
+        ref={carouselRef}
+        data-aos="fade-left"
+        data-aos-once="false"
+      >
+        <>
           {TimeLineData.map((item, index) => (
-            <div class="carousel-mobile-scroll-node" key={index}>
-              <div
-                class={`carousel-item ${index === activeItem ? "active" : ""}`}
+            <CarouselMobileScrollNode
+              key={index}
+              final={index === TOTAL_CAROUSEL_COUNT - 1}
+            >
+              <CarouselItem
+                index={index}
                 id={`carousel__item-${index}`}
+                active={activeItem}
                 onClick={(e) => handleClick(e, index)}
               >
-                <div class="carousel-item-title">
+                <CarouselItemTitle>
                   {item.year}
-                  <svg
-                    class="carousel-item-img"
+                  <CarouselItemImg
                     width="208"
                     height="6"
                     viewBox="0 0 208 6"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                  ></svg>
-                </div>
-                <div class="carousel-item-text">{item.text}</div>
-              </div>
-            </div>
+                  ></CarouselItemImg>
+                </CarouselItemTitle>
+                <CarouselItemText>{item.text}</CarouselItemText>
+              </CarouselItem>
+            </CarouselMobileScrollNode>
           ))}
-        </div>
-      </div>
+        </>
+      </CarouselContainer>
 
       <SectionDivider />
     </Section>
